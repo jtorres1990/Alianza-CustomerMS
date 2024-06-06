@@ -31,6 +31,7 @@ public class CustomerController {
 
     @Operation(description = "metodo que consulta todos los clientes")
     @GetMapping(value = Constantes.URL_GET_ALL, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<ResponseDto<List<CustomerDto>>> findAll() {
 
         ResponseDto responseDto = new ResponseDto<>();
