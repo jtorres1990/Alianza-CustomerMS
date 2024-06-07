@@ -53,14 +53,16 @@ public class CustomerService implements ICustomerService {
 
         try {
 
-            log.info("Mapenado dto a entidad");
+            log.info("Mapenado dto a entidad "+ customer.toString());
             CustomerEntity entity = mapper.mapperToEntity(customer);
             log.info("Guardando entidad");
             customerRepository.save(entity);
+            log.info("Entidad Guardada"+ entity);
             customer = mapper.mapperToDto(entity);
             return customer;
         } catch (Exception e) {
             log.error("Se ha presentado el siguiente error " + e.getMessage());
+
             return null;
         }
 

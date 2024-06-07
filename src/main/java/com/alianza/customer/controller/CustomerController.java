@@ -55,6 +55,7 @@ public class CustomerController {
     @PostMapping(value = Constantes.URL_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(description = "Operacion que permite guardar un cliente")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<ResponseDto> save(@RequestBody @Valid CustomerDto customer) {
         ResponseDto dto = new ResponseDto<>();
         try {
@@ -77,6 +78,7 @@ public class CustomerController {
 
     @Operation(description = "metodo que consulta por sharedkey")
     @GetMapping(value = Constantes.URL_GET_BY_SHAREDKEY, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<ResponseDto<List<CustomerDto>>> findBySharedKey(@PathVariable String id) {
 
         ResponseDto responseDto = new ResponseDto<>();
